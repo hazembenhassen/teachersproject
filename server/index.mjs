@@ -13,6 +13,7 @@ const sessionTtlMs = 1000 * 60 * 60 * 24 * 7;
 const allowedOrigins = new Set([
   "http://localhost:5173",
   "http://127.0.0.1:5173",
+  "https://teachersproject.vercel.app"
 ]);
 
 function json(response, statusCode, payload, origin = "") {
