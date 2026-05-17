@@ -84,7 +84,7 @@ const staticResourceLinks = [
 ];
 
 const accountTabs = [
-  { id: "community", label: "مجتمعي" },
+  { id: "community", label: "المجتمع التربوي" },
   { id: "civil-society", label: "المجتمع المدني" },
   { id: "green-corner", label: "الركن الأخضر" },
   { id: "dashboard", label: "لوحتي" },
