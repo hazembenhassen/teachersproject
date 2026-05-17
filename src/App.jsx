@@ -150,7 +150,7 @@ function LeafyChatbot() {
     {
       role: "assistant",
       content:
-        "مرحبًا! أنا Leafy 🌿، مساعدك الذكي في المنص . كيف يمكنني مساعدتك اليوم؟",
+        "مرحبًا! أنا Leafy 🌿، مساعدك الذكي في المنصّة . كيف يمكنني مساعدتك اليوم؟",
     },
   ]);
   const [input, setInput] = useState("");
