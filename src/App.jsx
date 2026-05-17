@@ -11,7 +11,7 @@ const marketingFeatures = [
   },
   {
     icon: "🤝",
-    title: "مجتمع للمعلمين",
+    title: "المجنمع التربوي ",
     desc: "شارك أفكارك وتجاربك اليومية مع باقي المعلمين داخل مساحة واحدة.",
   },
   {
@@ -150,7 +150,7 @@ function LeafyChatbot() {
     {
       role: "assistant",
       content:
-        "مرحبًا! أنا Leafy 🌿، مساعدك الذكي في منصة نور تعليم. كيف يمكنني مساعدتك اليوم؟",
+        "مرحبًا! أنا Leafy 🌿، مساعدك الذكي في المنص . كيف يمكنني مساعدتك اليوم؟",
     },
   ]);
   const [input, setInput] = useState("");
@@ -969,7 +969,7 @@ function LandingExperience({ onOpenLogin, onOpenSignup }) {
             </div>
           </div>
           <div className="landing-preview">
-            <div className="preview-card"><small>بعد الدخول</small><strong>Community</strong><p>انشر فكرة أو سؤالًا أو تجربة صفية مع المعلمين.</p></div>
+            <div className="preview-card"><small>بعد الدخول</small><strong>المجنمع التربوي</strong><p>انشر فكرة أو سؤالًا أو تجربة صفية مع المعلمين.</p></div>
             <div className="preview-card"><small>بعد الدخول</small><strong>المجتمع المدني</strong><p>تواصل مع الجمعيات والمنظمات الشريكة في المنطقة.</p></div>
             <div className="preview-card"><small>بعد الدخول</small><strong>الركن الأخضر</strong><p>ملفات وأدوات جاهزة لمساعدتك في تحضير الدروس.</p></div>
           </div>
@@ -1002,7 +1002,8 @@ function LandingExperience({ onOpenLogin, onOpenSignup }) {
       </main>
 
       <footer className="footer" id="access">
-        <strong>نور تعليم</strong>
+        <strong>أفق الاستدامة
+</strong>
         <p>سجّل الدخول الآن لتجربة الحساب الجديد المخصص للمعلمين.</p>
       </footer>
     </>
@@ -1138,7 +1139,8 @@ function AuthModal({ title, subtitle, onClose, children }) {
     <div className="modal-overlay" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div className="modal-shell">
         <button className="modal-close" onClick={onClose} type="button" aria-label="إغلاق">×</button>
-        <div className="modal-brand">🌿 نور تعليم</div>
+        <div className="modal-brand">🌿 أفق الاستدامة
+</div>
         <h3>{title}</h3>
         <p>{subtitle}</p>
         {children}
