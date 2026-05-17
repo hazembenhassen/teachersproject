@@ -437,6 +437,42 @@ async function handleCreatePost(request, response, origin) {
   );
 }
 
+async function handleDeletePost(request, response, origin) {
+  const sessionState = await resolveSession(request);
+
+  if (!sessionState) {
+    json(response, 401, { success: false, message: "يجب تسجيل الدخول أولاً." }, origin);
+    return;
+  }
+
+  const url = new URL(request.url || "/", "http://localhost");
+  const postId = url.pathname.split("/").pop();
+
+  if (!postId) {
+    json(response, 400, { success: false, message: "معرف المنشور مطلوب." }, origin);
+    return;
+  }
+
+  const postIndex = sessionState.db.posts.findIndex((post) => post.id === postId);
+
+  if (postIndex === -1) {
+    json(response, 404, { success: false, message: "المنشور غير موجود." }, origin);
+    return;
+  }
+
+  const post = sessionState.db.posts[postIndex];
+
+  if (post.author.id !== sessionState.teacher.id) {
+    json(response, 403, { success: false, message: "لا يمكنك حذف هذا المنشور." }, origin);
+    return;
+  }
+
+  sessionState.db.posts.splice(postIndex, 1);
+  await writeDb(sessionState.db);
+
+  json(response, 200, { success: true, message: "تم حذف المنشور بنجاح." }, origin);
+}
+
 async function handleGetResources(request, response, origin) {
   const sessionState = await resolveSession(request);
 
@@ -494,6 +530,11 @@ export function createAuthServer() {
 
       if (request.method === "POST" && url.pathname === "/api/community/posts") {
         await handleCreatePost(request, response, origin);
+        return;
+      }
+
+      if (request.method === "DELETE" && url.pathname.startsWith("/api/community/posts/")) {
+        await handleDeletePost(request, response, origin);
         return;
       }
 
